@@ -3,6 +3,9 @@
 #SBATCH -c 1
 #SBATCH -G 1
 #SBATCH --time=10:00:00
+#SBATCH --output=job_output.log
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=yeevelyn@stanford.edu
 
 # load modules?
 ml python/3.12

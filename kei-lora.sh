@@ -19,7 +19,7 @@ export REF_IMG="/scratch/users/yeevelyn/stable-lora/reference_img"
 export NEW_PROMPT="Kei plays a soccer ball in a park. She has a determined expression and is running after the ball. The background is colorful and fully rendered."
 
 # run command
-accelerate launch --mixed_precision="fp16"  train_text_to_image_lora.py \
+accelerate launch train_text_to_image_lora.py \
   --pretrained_model_name_or_path=$MODEL_NAME \
   --train_data_dir=$REF_IMG \
   --image_column="image" \
@@ -27,11 +27,12 @@ accelerate launch --mixed_precision="fp16"  train_text_to_image_lora.py \
   --resolution=512 --center_crop --random_flip \
   --train_batch_size=1 \
   --gradient_accumulation_steps=4 \
-  --max_train_steps=15000 \
+  --max_train_steps=13000 \
   --learning_rate=1e-04 \
   --max_grad_norm=1 \
   --lr_scheduler="cosine" --lr_warmup_steps=0 \
   --output_dir=${OUTPUT_DIR} \
+  --resume_from_checkpoint="latest" \
   --report_to=tensorboard \
   --checkpointing_steps=500 \
   --validation_prompt="$NEW_PROMPT" \

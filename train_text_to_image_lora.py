@@ -129,7 +129,7 @@ def log_validation(
             images.append(pipeline(args.validation_prompt, num_inference_steps=30, generator=generator).images[0])
 
     for tracker in accelerator.trackers:
-        phase_name = "test" if is_final_validation else "validation"
+        phase_name = "test" if is_final_validation else f"validation_{epoch}"
         if tracker.name == "tensorboard":
             np_images = np.stack([np.asarray(img) for img in images])
             tracker.writer.add_images(phase_name, np_images, epoch, dataformats="NHWC")

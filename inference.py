@@ -14,6 +14,7 @@ def parse_args():
 
     # Boolean flag for lora
     parser.add_argument("--lora", action="store_true", help="Enable LoRA (default: false)")
+    parser.add_argument("--sub", type=str, default="vash", help="Sub-directory for model and eval.")
     parser.add_argument("--prompt_file", type=str, default="eval/eval_prompts.jsonl", help="Path to the prompt file")
 
     args = parser.parse_args()
@@ -26,6 +27,8 @@ if __name__ == "__main__":
     weight_dtype = torch.float32
     output_dir = "train"
     eval_dir = 'test_img'
+    output_dir = os.path.join(output_dir, args.sub)
+    eval_dir = os.path.join('eval', args.sub, eval_dir)
 
     print('Reading prompts from', args.prompt_file)
     prompt_file = args.prompt_file

@@ -15,7 +15,7 @@ def parse_args():
     # Boolean flag for lora
     parser.add_argument("--lora", action="store_true", help="Enable LoRA (default: false)")
     parser.add_argument("--sub", type=str, default="vash", help="Sub-directory for model and eval.")
-    parser.add_argument("--prompt_file", type=str, default="eval/eval_prompts.jsonl", help="Path to the prompt file")
+    parser.add_argument("--prompt_file", type=str, default="eval/vash/eval_prompts.jsonl", help="Path to the prompt file")
 
     args = parser.parse_args()
     return args

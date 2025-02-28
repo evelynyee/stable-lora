@@ -18,7 +18,7 @@ source /scratch/users/yeevelyn/stable-lora/env/bin/activate
 # run command
 python3 inference.py
 python3 inference.py --lora
-python3 inference.py --prompt_file eval/eval_prompts-nodesc.jsonl
-python3 inference.py --lora --prompt_file eval/eval_prompts-nodesc.jsonl
-python3 inference.py --prompt_file eval/eval_prompts-noname.jsonl
-python3 inference.py --lora --prompt_file eval/eval_prompts-noname.jsonl
+python3 inference.py --prompt_file eval/vash/eval_prompts-nodesc.jsonl
+python3 inference.py --lora --prompt_file eval/vash/eval_prompts-nodesc.jsonl
+python3 inference.py --prompt_file eval/vash/eval_prompts-noname.jsonl
+python3 inference.py --lora --prompt_file eval/vash/eval_prompts-noname.jsonl
